@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% import "macros.html" as macros %}
+
+{% block content %}
+<div class="flex flex-row">
+	<aside id="sidebar" class="w-1/4">
+		<nav>
+			{{ macros::menubar(base=get_section(path="_index.md")) }}
+		</nav>
+	</aside>
+
+	<div id="content" class="w-full">
+		<div class="flex items-center ph1">
+			{% for parent_path in section.ancestors %}
+			{% if loop.index == 1 %}{% continue %}{% endif %}
+			{% set parent = get_section(path = parent_path) %}
+			<a href="{{ parent.permalink }}">{{ parent.title }}</a>
+			<span class="ph1"> > </span>
+			{% endfor %}
+			<h1 class="text-6xl">{{ section.title }}</h1>
+		</div>
+		{{ section.content | safe }}
+
+		<div>
+			{% for section_name in section.subsections %}
+			{% set section = get_section(path = section_name) %}
+			<section>
+				<a href="{{ section.permalink }}">
+					<h2>{{ section.title }}</h2>
+				</a>
+				<p>{{ section.description }}</p>
+				<a href="{{ section.permalink }}" class="pa2 link">
+					Read more
+				</a>
+			</section>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock %}

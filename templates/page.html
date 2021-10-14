@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<hgroup>
+	<h1 class="text-6xl">{{ page.title }}</h1>
+	<h6>
+		{% for parent_path in page.ancestors %}
+		{% if loop.index == 1 %}{% continue %}{% endif %}
+		{% set parent = get_section(path = parent_path) %}
+		<a href="{{ parent.permalink }}">{{ parent.title }}</a>
+		>
+		{% endfor %}
+	</h6>
+</hgroup>
+{{ page.content | safe }}
+{% endblock %}
