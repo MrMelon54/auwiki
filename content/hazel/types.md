@@ -2,7 +2,7 @@
 title = "Hazel types"
 +++
 
-While the structure of a Hazel packet is usually application defined, they always use the following data types to read or write parts of a packet.
+The structure of Hazel packets is usually defined by the application, however there are some data types predefined by Hazel. This section goes over these basic building block, which are Integers, Packed Integers, Strings/Byte arrays, and Messages.
 
 Reading and Writing packets is implemented in Hazel in the MessageReader and MessageWriter class respectively.
 
@@ -15,7 +15,7 @@ Floating points are encoded in a similar manner: the internal representation of 
 
 # Packed Integers
 
-It is also possible to encode 32-bit integers in a more compact format called Packed Integers. This works checking if the most significant bit of a byte is set, and if it is, read another byte. This repeats until the most significant bit is no longer set. The number is then the remaining 7 bits of each byte combined together in little endian order.
+Next to their normal 4-byte format, Hazel can also encode 32-bit integers in a usually more compact format called Packed Integers. This works checking if the most significant bit of a byte is set, and if it is, read another byte. This repeats until the most significant bit is no longer set. The number is then the remaining 7 bits of each byte combined together in little endian order.
 
 The following piece of C# code is used to read packed integers, the code to write them is similar:
 
@@ -49,7 +49,7 @@ public uint ReadPackedUInt32()
 }
 ```
 
-The advantage of Packed Integers is that they can represent a small number in a more compact notation when it is possible to send both small and large numbers. The downside is that more bytes are used compared to encoding a fixed size integer if such a wide range of numbers is not possible.
+Packed Integers allow integers of a wide varying size to be written in an on average more compact notation. The downside is that more bytes are used compared to encoding a fixed size integer if such a wide range of numbers is not possible.
 
 There is also an signed integer variant, but its use in new designs cannot be recommended: due to how two's complement numbers work, the highest bit of a 32-bit number would be set if the number is negative, which means that all negative numbers would be encoded in 5 bytes, which is less efficient than when a 32-bit number was encoded directly.
 
@@ -59,6 +59,6 @@ Strings and byte arrays usually consist of a packed 32-bit integer encoding the 
 
 # Messages
 
-Messages are used in Hazel to introduce a level of nesting in packets. They have a length and a tag, which makes them useful for encoding for example, RPC numbers, system numbers and much more. They are also used in Hazel's Root Message, which is at the start of each packet.
+Messages are used in Hazel to introduce a level of nesting in packets. They have a length and a tag, which makes them useful for encoding for example, RPC numbers, system numbers and much more.
 
 They start with an unsigned 16-bit integer that encodes the length of the data, then a byte that gives the tag of the message. The actual message then follows. Note that bytes used for the tag (and the length) are not included in the length of the message.
