@@ -19,7 +19,9 @@
 			{% endfor %}
 			<h1 class="text-6xl">{{ section.title }}</h1>
 		</div>
-		{{ section.content | safe }}
+		<article class="prose prose-lg prose-blue">
+			{{ section.content | safe }}
+		</article>
 
 		<div>
 			{% for section_name in section.subsections %}
