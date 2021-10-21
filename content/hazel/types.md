@@ -2,7 +2,7 @@
 title = "Hazel types"
 +++
 
-The structure of Hazel packets is usually defined by the application, however there are some data types predefined by Hazel. This section goes over these basic building block, which are Integers, Packed Integers, Strings/Byte arrays, and Messages.
+The structure of Hazel packets is usually defined by the application, however there are some data types predefined by Hazel. This section goes over these basic building blocks, which are [Integers](#integers), [Packed Integers](#packed-integers), [Strings/Byte arrays](#strings-and-byte-arrays), and [Messages](#messages).
 
 Reading and Writing packets is implemented in Hazel in the MessageReader and MessageWriter class respectively.
 
@@ -15,25 +15,57 @@ Floating points are encoded in a similar manner: the internal representation of 
 
 # Packed Integers
 
-Next to their normal 4-byte format, Hazel can also encode 32-bit integers in a usually more compact format called Packed Integers. This works checking if the most significant bit of a byte is set, and if it is, read another byte. This repeats until the most significant bit is no longer set. The number is then the remaining 7 bits of each byte combined together in little endian order.
+Next to their normal 4-byte format, Hazel can also encode 32-bit integers in a usually more compact format called Packed Integers.
+In this format, the most significant bit is used to indicate if another byte should be read, while the other 7 bits contain the actual value of the integer.
 
 The following piece of C# code is used to read packed integers, the code to write them is similar:
 
-```cs
-// Taken from Hazel source code, licensed under MIT
-public uint ReadPackedUInt32()
-    bool readMore = true;
-    int shift = 0;
-    uint output = 0;
+The following piece of code is used by Hazel to [write](https://github.com/willardf/Hazel-Networking/blob/98d9f5d2c8664b19707907d1a7ca4863ec3e396a/Hazel/MessageWriter.cs#L302) and [read](https://github.com/willardf/Hazel-Networking/blob/98d9f5d2c8664b19707907d1a7ca4863ec3e396a/Hazel/MessageReader.cs#L393) packed integers, comments added for readability:
 
+```cs
+// Taken from Hazel source code, class MessageWriter.cs, licensed under MIT
+// Comments added by AUWiki for readability
+public void WritePacked(uint value)
+{
+    do
+    {
+        // Get the 8 lowest bits of the value
+        byte b = (byte)(value & 0xFF);
+
+        // Every value that's larger than 0x80 will need another byte, so set the continuation bit
+        if (value >= 0x80)
+        {
+            b |= 0x80;
+        }
+
+        this.Write(b);
+
+        // Because we've written the 7 least significant bits, we remove them from our value
+        value >>= 7;
+    } while (value > 0); // Continue until entire number is written
+}
+```
+
+```cs
+// Taken from Hazel source code, class MessageReader.cs, licensed under MIT
+// Comments added by AUWiki for readability
+public uint ReadPackedUInt32()
+{
+    bool readMore = true;
+    int shift = 0; // Amount of bits each new byte will need to be bitshifted by.
+    uint output = 0; // Final value
+
+    // This true if a continuation bit was read in the last cycle, if true read another byte. Its initial value is true, so at least one byte is always read.
     while (readMore)
     {
         if (this.BytesRemaining < 1) throw new InvalidDataException($"Read length is longer than message length.");
 
         byte b = this.ReadByte();
+        // Check if the continuation bit is set on this byte
         if (b >= 0x80)
         {
             readMore = true;
+            // Remove the continuation bit from the byte
             b ^= 0x80;
         }
         else
@@ -41,7 +73,9 @@ public uint ReadPackedUInt32()
             readMore = false;
         }
 
+        // Add the contents of this byte to the output
         output |= (uint)(b << shift);
+        // The next byte will need to be shifted 7 bits further
         shift += 7;
     }
 
