@@ -1,3 +1,5 @@
+@import "./components/zola-syntax-highlighting.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
