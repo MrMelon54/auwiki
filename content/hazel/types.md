@@ -11,7 +11,7 @@ Reading and Writing packets is implemented in Hazel in the MessageReader and Mes
 The most common datatype in packets are integers. Multiple sizes are in use, ranging from a single 8-bit byte to 64-bit integers.
 Integers are encoded in Little Endian byte order. This means that the least significant byte is put into the network first.
 
-Floating points are encoded in a similar manner: the internal representation of a floating point, which is in IEEE xxx format, is written as bytes onto the network.
+Floating points are encoded in a similar manner: the internal representation of a floating point, which is in IEEE 754 Single Precision format, is written as bytes onto the network.
 
 # Packed Integers
 
