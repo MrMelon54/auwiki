@@ -1,0 +1,16 @@
+{
+  "name": "auwiki-css",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "autoprefixer": "^10.3.7",
+    "postcss": "^8.3.11",
+    "postcss-cli": "^9.0.1",
+    "tailwindcss": "^2.2.17"
+  },
+  "scripts": {
+    "build": "postcss styles.css -o ../static/styles.css"
+  }
+}
