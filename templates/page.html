@@ -1,19 +1,30 @@
-{% extends 'base.html' %}
+{% extends 'base-with-sidebar.html' %}
 
-{% block content %}
+{% block sidebar_top %}
+On this page:
+<ul class="pb-5 pl-6">
+	{% for header in page.toc %}
+	<li><a href="#{{ header.id }}">{{ header.title }}</a></li>
+	{% endfor %}
+</ul>
+<hr class="pb-4 text-gray-400"/>
+{% endblock %}
+
+{% block inner_content %}
 <hgroup>
-	<h1 class="text-6xl">{{ page.title }}</h1>
-	<h6>
+	<h1 class="text-4xl pb-5 font-semibold">{{ page.title }}</h1>
+	{# breadcrumbs #}
+	{# <h6 class="mb-4 italic">
 		{% for parent_path in page.ancestors %}
 		{% if loop.index == 1 %}{% continue %}{% endif %}
+		{% if loop.index != 2 %}>{% endif %}
 		{% set parent = get_section(path = parent_path) %}
 		<a href="{{ parent.permalink }}">{{ parent.title }}</a>
-		>
 		{% endfor %}
-	</h6>
+	</h6>#}
 </hgroup>
 
-<article class="prose prose-lg prose-blue">
+<article class="prose prose-blue">
 	{{ page.content | safe }}
 </article>
 {% endblock %}

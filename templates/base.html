@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="/styles.css">
     </head>
     <body>
-        <!--[if lt IE 8]>
+        <!--[if lt IE 12]>
             <p class="browserupgrade">
             You are using an <strong>outdated</strong> browser. Please
             <a href="http://browsehappy.com/">upgrade your browser</a> to improve
@@ -20,10 +20,23 @@
             </p>
         <![endif]-->
 
-        <div class="container mx-auto">
-            {% block content %}
-            {% endblock %}
-        </div>
+		<div class="block bg-gray-100">
+			{# Header #}
+			<header class="sticky top-0 w-full mx-auto bg-yellow-400 h-10 flex flex-row items-center z-10">
+				<div class="flex-none pl-4">
+					<a href="/">AUWiki</a>
+				</div>
+			</header>
+
+			{# Page content, possibly including a sidebar #}
+			<div class="container mx-auto">
+				{% block content %}
+				{% endblock %}
+			</div>
+
+		</div>
+
+
 
         <!--footer>
             This site is not affiliated with Among Us or Innersloth LLC, and the content contained therein is not endorsed or otherwise sponsored by Innersloth LLC. Portions of the materials contained herein are property of Innersloth LLC. © Innersloth LLC.

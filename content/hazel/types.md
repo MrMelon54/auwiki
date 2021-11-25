@@ -6,14 +6,14 @@ The structure of Hazel packets is usually defined by the application, however th
 
 Reading and Writing packets is implemented in Hazel in the MessageReader and MessageWriter class respectively.
 
-# Integers
+## Integers
 
 The most common datatype in packets are integers. Multiple sizes are in use, ranging from a single 8-bit byte to 64-bit integers.
 Integers are encoded in Little Endian byte order. This means that the least significant byte is put into the network first.
 
 Floating points are encoded in a similar manner: the internal representation of a floating point, which is in IEEE 754 Single Precision format, is written as bytes onto the network.
 
-# Packed Integers
+## Packed Integers
 
 Next to their normal 4-byte format, Hazel can also encode 32-bit integers in a usually more compact format called Packed Integers.
 In this format, the most significant bit is used to indicate if another byte should be read, while the other 7 bits contain the actual value of the integer.
@@ -87,11 +87,11 @@ Packed Integers allow integers of a wide varying size to be written in an on ave
 
 There is also an signed integer variant, but its use in new designs cannot be recommended: due to how two's complement numbers work, the highest bit of a 32-bit number would be set if the number is negative, which means that all negative numbers would be encoded in 5 bytes, which is less efficient than when a 32-bit number was encoded directly.
 
-# Strings and byte arrays
+## Strings and byte arrays
 
 Strings and byte arrays usually consist of a packed 32-bit integer encoding the length of the following string/byte array in bytes, followed by the actual data of the string/byte array. It is expected that strings are valid UTF-8. It is also possible to read a certain amount of bytes without a length indicator, if this is constant or communicated in a different way.
 
-# Messages
+## Messages
 
 Messages are used in Hazel to introduce a level of nesting in packets. They have a length and a tag, which makes them useful for encoding for example, RPC numbers, system numbers and much more.
 
