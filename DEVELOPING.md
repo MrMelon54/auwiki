@@ -22,7 +22,7 @@ You need to install the following software:
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git/)
 - [Node.js](https://nodejs.org/en/) 12.13 or higher
 - [Yarn](https://classic.yarnpkg.com/en/docs/install/)
-- Highly recommended: A Procfile runner like [Overmind](https://github.com/DarthSim/overmind/) is highly recommended, especially if you're working on the templates. TODO find alternative that works on Windows
+- Highly recommended: A Procfile runner like [Overmind](https://github.com/DarthSim/overmind/) is highly recommended, especially if you're working on the templates. On Windows [node-foreman](https://github.com/strongloop/node-foreman) is a good alternative.
 
 ### First setup
 
