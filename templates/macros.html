@@ -1,16 +1,16 @@
-{% macro menubar(base) %}
-    <!--span>{{base.title}}</span-->
-
-
+{% macro menubar(base, current_path) %}
     {% for subsection_path in base.subsections %}
     {% set subsection = get_section(path=subsection_path) %}
     <details open>
-        <summary><a href="{{ subsection.permalink }}">{{ subsection.title }}</a></summary>
+        <summary><a href="{{ subsection.path }}" class="{% if subsection.path == current_path %}font-bold{% endif %}">{{ subsection.title }}</a></summary>
 
-        <ul>
+        <ul class="pl-6">
             {% for page in subsection.pages %}
-            <li><a class="secondary" href="{{ page.permalink }}">{{ page.title }}</a></li>
+            <li><a class="{% if page.path == current_path %}font-bold{% endif %}" href="{{ page.path }}">{{ page.title }}</a></li>
             {% endfor %}
+			{% for subsubsection_path in subsection.subsections %}
+			{{ self::menubar(base = subsubsection_path, current = current) }}
+			{% endfor %}
         </ul>
     </details>
     {% endfor %}
