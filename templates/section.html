@@ -1,15 +1,11 @@
 {% extends 'base-with-sidebar.html' %}
+{% import "macros.html" as macros %}
+
+{% block header %}
+<h1 class="text-4xl pb-5 font-semibold">{{ section.title }}</h1>
+{% endblock %}
 
 {% block inner_content %}
-<div class="flex items-center ph1">
-	{% for parent_path in section.ancestors %}
-	{% if loop.index == 1 %}{% continue %}{% endif %}
-	{% set parent = get_section(path = parent_path) %}
-	<a href="{{ parent.permalink }}">{{ parent.title }}</a>
-	<span class="ph1"> > </span>
-	{% endfor %}
-	<h1 class="text-4xl pb-5 font-semibold">{{ section.title }}</h1>
-</div>
 <article class="prose prose-blue">
 	{{ section.content | safe }}
 </article>
@@ -27,5 +23,18 @@
 		</a>
 	</section>
 	{% endfor %}
+
+	<div class="flex flex-wrap mb-4">
+		{% for page in section.pages %}
+		<div class="w-1/4">
+			<div class="m-1 px-3 py-3 bg-gray-200">
+				<a href="{{ page.path }}" class="text-xl">{{ macros::tagged_title(page = page) }}</a>
+				{% if page.summary %}
+				{{ page.summary | safe }}
+				{% endif %}
+			</div>
+		</div>
+		{% endfor %}
+	</div>
 </div>
 {% endblock %}

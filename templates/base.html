@@ -1,24 +1,31 @@
 <!doctype html>
 <html class="no-js" lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>{% block title %}{{ config.title }}{% endblock %}</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+	{% if page %}
+		{% set content = page %}
+	{% elif section %}
+		{% set content = section %}
+	{% else %}
+		{{ throw(message = "not a page or a section") }}
+	{% endif %}
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>{% block title %}{{ content.title }} - {{ config.title }}{% endblock %}</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
-        <link rel="stylesheet" href="/styles.css">
-    </head>
-    <body>
-        <!--[if lt IE 12]>
-            <p class="browserupgrade">
-            You are using an <strong>outdated</strong> browser. Please
-            <a href="http://browsehappy.com/">upgrade your browser</a> to improve
-            your experience.
-            </p>
-        <![endif]-->
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<!-- Place favicon.ico in the root directory -->
+		<link rel="stylesheet" href="/styles.css">
+	</head>
+	<body>
+		<!--[if lt IE 12]>
+			<p class="browserupgrade">
+			You are using an <strong>outdated</strong> browser. Please
+			<a href="http://browsehappy.com/">upgrade your browser</a> to improve
+			your experience.
+			</p>
+		<![endif]-->
 
 		<div class="block bg-gray-100">
 			{# Header #}
@@ -38,8 +45,8 @@
 
 
 
-        <!--footer>
-            This site is not affiliated with Among Us or Innersloth LLC, and the content contained therein is not endorsed or otherwise sponsored by Innersloth LLC. Portions of the materials contained herein are property of Innersloth LLC. © Innersloth LLC.
-        </footer-->
-    </body>
+		<!--footer>
+			 This site is not affiliated with Among Us or Innersloth LLC, and the content contained therein is not endorsed or otherwise sponsored by Innersloth LLC. Portions of the materials contained herein are property of Innersloth LLC. © Innersloth LLC.
+			 </footer-->
+	</body>
 </html>

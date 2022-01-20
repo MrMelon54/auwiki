@@ -13,6 +13,11 @@
 	</aside>
 
 	<div id="content" class="w-4/5 pt-4 pl-6 pr-6">
+		{% block header %}
+		{% endblock %}
+		{% if content.extra is containing("stub") %}
+		<div class="bg-blue-100 border border-blue-400 px-4 py-3 mb-4 rounded" role="alert">This page is an incomplete stub, feel free to expand on this page.</div>
+		{% endif %}
 		{% block inner_content %}
 		{% endblock %}
 	</div>

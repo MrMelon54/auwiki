@@ -10,20 +10,11 @@ On this page:
 <hr class="pb-4 text-gray-400"/>
 {% endblock %}
 
-{% block inner_content %}
-<hgroup>
+{% block header %}
 	<h1 class="text-4xl pb-5 font-semibold">{{ page.title }}</h1>
-	{# breadcrumbs #}
-	{# <h6 class="mb-4 italic">
-		{% for parent_path in page.ancestors %}
-		{% if loop.index == 1 %}{% continue %}{% endif %}
-		{% if loop.index != 2 %}>{% endif %}
-		{% set parent = get_section(path = parent_path) %}
-		<a href="{{ parent.permalink }}">{{ parent.title }}</a>
-		{% endfor %}
-	</h6>#}
-</hgroup>
+{% endblock %}
 
+{% block inner_content %}
 <article class="prose prose-blue">
 	{{ page.content | safe }}
 </article>
