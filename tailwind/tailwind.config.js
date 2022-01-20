@@ -6,11 +6,9 @@ const round = (num) =>
 const em = (px, base) => `${round(px / base)}em`;
 
 module.exports = {
-  mode: 'jit',
-  purge: [
+  content: [
     '../templates/**/*.html'
   ],
-  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       typography: {
@@ -26,9 +24,6 @@ module.exports = {
         }
       }
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [
     require('@tailwindcss/typography'),
