@@ -1,7 +1,7 @@
 {% macro menubar(base, current_path) %}
     {% for subsection_path in base.subsections %}
     {% set subsection = get_section(path=subsection_path) %}
-    <details open>
+    <details {%- if current_path is starting_with(subsection.path) %} open {%- endif %}>
         <summary><a href="{{ subsection.path }}" class="{% if subsection.path == current_path %}font-bold{% endif %}">{{ subsection.title }}</a></summary>
 
         <ul class="pl-6">
