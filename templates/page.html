@@ -1,6 +1,7 @@
 {% extends 'base-with-sidebar.html' %}
 
 {% block sidebar_top %}
+{% if page.toc | length > 0 %}
 On this page:
 <ul class="pb-5 pl-6">
 	{% for header in page.toc %}
@@ -8,6 +9,7 @@ On this page:
 	{% endfor %}
 </ul>
 <hr class="pb-4 text-gray-400"/>
+{% endif %}
 {% endblock %}
 
 {% block header %}
