@@ -4,4 +4,4 @@
 
 AUWiki is a reference guide to the game Among Us, currently focussing on its network protocol
 
-If you want to help, ping miniduikboot#2965 on the Reactor Discord
+If you want to help, ping miniduikboot#2965 on the [Reactor Discord](https://discord.gg/MXPQXr2VDa). The wiki is discussed in the #amongus-protocol channel
