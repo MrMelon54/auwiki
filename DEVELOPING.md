@@ -18,10 +18,10 @@ If you're working on the templates:
 
 You need to install the following software:
 
-- [Zola](https://www.getzola.org/documentation/getting-started/installation/)
-- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git/)
-- [Node.js](https://nodejs.org/en/) 12.13 or higher
-- [Yarn](https://classic.yarnpkg.com/en/docs/install/)
+- [zola](https://www.getzola.org/documentation/getting-started/installation/)
+- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git/)
+- [node.js](https://nodejs.org/en/) 12.13 or higher
+- [pnpm](https://pnpm.io/installation)
 - Highly recommended: A Procfile runner like [Overmind](https://github.com/DarthSim/overmind/) is highly recommended, especially if you're working on the templates. On Windows [node-foreman](https://github.com/strongloop/node-foreman) is a good alternative.
 
 ### First setup

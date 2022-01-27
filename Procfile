@@ -1,2 +1,2 @@
 web: zola serve
-css: yarn --cwd tailwind run build --watch
+css: pnpm -C tailwind run build -- --watch
