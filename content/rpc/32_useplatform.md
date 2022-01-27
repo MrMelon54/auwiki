@@ -5,5 +5,7 @@ weight = 32
 tag = 32
 stub = true
 +++
-TODO
+
+This Rpc moves the platform in Airship's Gap Room.
+
 <!-- more -->
