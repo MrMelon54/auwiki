@@ -1,22 +1,27 @@
 {% macro menubar(base, current_path) %}
-    {% for subsection_path in base.subsections %}
-    {% set subsection = get_section(path=subsection_path) %}
-    <details {%- if current_path is starting_with(subsection.path) %} open {%- endif %}>
-        <summary><a href="{{ subsection.path }}" class="{% if subsection.path == current_path %}font-bold{% endif %}">{{ subsection.title }}</a></summary>
+{% for subsection_path in base.subsections %}
+	{{ self::menubar_inner(section = get_section(path=subsection_path), current_path = current_path) }}
+{% endfor %}
+{% endmacro menubar %}
+
+{% macro menubar_inner(section, current_path) %}
+    <details {%- if current_path is starting_with(section.path) %} open {%- endif %}>
+        <summary><a href="{{ section.path }}" class="{% if section.path == current_path %}font-bold{% endif %}">{{ self::tagged_title(page = section) }}</a></summary>
 
         <ul class="pl-6">
-            {% for page in subsection.pages %}
+			{% for subsection_path in section.subsections %}
+			<li>
+				{{ self::menubar_inner(section = get_section(path=subsection_path), current_path = current_path) }}
+			</li>
+			{% endfor %}
+            {% for page in section.pages %}
             <li><a class="{% if page.path == current_path %}font-bold{% endif %}" href="{{ page.path }}">
 				{{ self::tagged_title(page = page) }}
 			</a></li>
             {% endfor %}
-			{% for subsubsection_path in subsection.subsections %}
-			{{ self::menubar(base = subsubsection_path, current = current) }}
-			{% endfor %}
         </ul>
     </details>
-    {% endfor %}
-{% endmacro menubar %}
+{% endmacro menubar_inner %}
 
 {% macro tagged_title(page) %}
 	{% if page.extra is containing('tag') %}
