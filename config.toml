@@ -16,3 +16,6 @@ highlight_code = true
 
 [extra]
 # Put all your custom variables here
+top_menu = [
+   { name = "Networking", url = "/networking" }
+]
