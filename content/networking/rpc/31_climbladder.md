@@ -5,5 +5,7 @@ weight = 31
 tag = 31
 stub = true
 +++
-TODO
+
+This Rpc allows climbing or descending the ladders in Airship
+
 <!-- more -->

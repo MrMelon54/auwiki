@@ -5,5 +5,7 @@ weight = 34
 tag = 34
 stub = true
 +++
-TODO
+
+This Rpc removes a player from a vent.
+
 <!-- more -->

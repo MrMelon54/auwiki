@@ -5,5 +5,7 @@ weight = 33
 tag = 33
 stub = true
 +++
-TODO
+
+This Rpc sends a Quick Chat message.
+
 <!-- more -->
