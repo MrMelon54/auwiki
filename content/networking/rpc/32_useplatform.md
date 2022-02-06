@@ -6,6 +6,6 @@ tag = 32
 stub = true
 +++
 
-This Rpc moves the platform in Airship's Gap Room.
+This RPC moves the platform in Airship's Gap Room.
 
 <!-- more -->
