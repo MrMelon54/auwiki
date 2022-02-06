@@ -36,10 +36,7 @@ async function build() {
 	return await Promise.all(tasks.map((task) => task.fn()));
 }
 
-const runnerTasks = [watch, build].reduce((obj, task) => {
-	obj[task.name] = task;
-	return obj;
-}, {});
+const runnerTasks = { watch: watch, build: build };
 
 process.argv.forEach((val, index) => {
 	if (index >= 2) runnerTasks[val]();
