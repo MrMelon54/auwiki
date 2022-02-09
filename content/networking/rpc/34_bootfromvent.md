@@ -6,6 +6,6 @@ tag = 34
 stub = true
 +++
 
-This Rpc removes a player from a vent.
+This RPC removes a player from a vent.
 
 <!-- more -->
