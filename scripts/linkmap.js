@@ -4,9 +4,7 @@
 const fs = require("fs").promises;
 const path = require("path");
 
-// TODO allow for more flexible whitespace
-const title_regex = new RegExp('title = "([^":]+)');
-//const title_regex = new RegExp('title\s*=\s*"([^"]+)"');
+const title_regex = new RegExp('title\\s*=\\s*"([^":]+)');
 
 /// Run a function for each file in a directory and its subdirectories and return an array with all results.
 async function mapFiles(dir, mapfn, rootDir) {
