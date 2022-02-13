@@ -35,10 +35,6 @@ async function parseTitle(filename, rootdir) {
 }
 
 function mapTitle(title, filename) {
-	/// Rename GameData section to prevent duplicate keys
-	if (filename == "/networking/gamedata/_index.md") {
-		return "GameData section";
-	}
 	return title;
 }
 
