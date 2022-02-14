@@ -27,12 +27,14 @@
 	<div class="flex flex-wrap mb-4">
 		{% for page in section.pages %}
 		<div class="w-1/4">
-			<div class="m-1 px-3 py-3 bg-gray-200">
-				<a href="{{ page.path }}" class="text-xl">{{ macros::tagged_title(page = page) }}</a>
-				{% if page.summary %}
-				{{ page.summary | safe }}
-				{% endif %}
-			</div>
+			<a href="{{ page.path }}">
+				<div class="m-1 px-3 py-3 bg-gray-200">
+					<div class="text-xl">{{ macros::tagged_title(page = page) }}</div>
+					{% if page.summary %}
+					{{ page.summary | safe }}
+					{% endif %}
+				</div>
+			</a>
 		</div>
 		{% endfor %}
 	</div>
