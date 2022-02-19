@@ -5,6 +5,9 @@
 {% endmacro menubar %}
 
 {% macro menubar_inner(section, current_path) %}
+{% if section.subsections | length == 0 and section.pages | length == 0 %}
+	<a href="{{ section.path }}" class="{% if current_path is starting_with(section.path) %}font-bold{% endif %}">{{ self::tagged_title(page = section) }}</a>
+{% else %}
     <details {%- if current_path is starting_with(section.path) %} open {%- endif %}>
         <summary><a href="{{ section.path }}" class="{% if section.path == current_path %}font-bold{% endif %}">{{ self::tagged_title(page = section) }}</a></summary>
 
@@ -21,6 +24,7 @@
             {% endfor %}
         </ul>
     </details>
+{% endif %}
 {% endmacro menubar_inner %}
 
 {% macro tagged_title(page) %}

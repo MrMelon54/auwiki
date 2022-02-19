@@ -1,7 +1,7 @@
 +++
 title = "GameData"
-weight = 5
+weight = 30
 [extra]
-tag = 5
 stub = true
+tag = 3
 +++
