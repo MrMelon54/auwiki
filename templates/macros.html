@@ -27,6 +27,19 @@
 {% endif %}
 {% endmacro menubar_inner %}
 
+{% macro page_tile(page) %}
+	<div class="w-1/4">
+		<a href="{{ page.path }}">
+			<div class="m-1 px-3 py-3 bg-gray-200">
+				<div class="text-xl">{{ macros::tagged_title(page = page) }}</div>
+				{% if page.summary %}
+				{{ page.summary | safe }}
+				{% endif %}
+			</div>
+		</a>
+	</div>
+{% endmacro %}
+
 {% macro tagged_title(page) %}
 	{% if page.extra is containing('tag') %}
 		{{ page.extra.tag }}{#{{ self::int2hex_padded(n = page.extra.tag) }}#} -
