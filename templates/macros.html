@@ -41,10 +41,12 @@
 {% endmacro %}
 
 {% macro tagged_title(page) %}
+	{% if page.extra is containing('stub') %}<i>{% endif %}
 	{% if page.extra is containing('tag') %}
 		{{ page.extra.tag }}{#{{ self::int2hex_padded(n = page.extra.tag) }}#} -
 	{% endif %}
 	{{ page.title }}
+	{% if page.extra is containing('stub') %}</i>{% endif %}
 {% endmacro %}
 
 {% macro int2hex_padded(n) %}
