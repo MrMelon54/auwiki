@@ -16,7 +16,7 @@ Rpc[21] := xLerped:u16 yLerped:u16 sid:u16;
 |            |                                                   |
 | ---------- | ------------------------------------------------- |
 | Sent by:   | An venting player or a player spawning on Airship |
-| Called on: | CustomNetworkTransform of the teleporting player  |
+| Called on: | {{ link(to="CustomNetworkTransform") }} of the teleporting player  |
 
 When a player receives this message and the sequence id (sid) is recent enough, the player is teleported to the specified location.
 
