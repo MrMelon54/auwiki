@@ -3,7 +3,6 @@ title = "ClearVote"
 weight = 25
 [extra]
 tag = 25
-stub = true
 +++
 
 The ClearVote Rpc is used by the host to tell a client that their vote has been removed, thus removing the mark on the voting screen.

@@ -3,7 +3,6 @@ title = "CheckName"
 weight = 5
 [extra]
 tag = 5
-stub = true
 +++
 
 The CheckName RPC is used by joining players to ask the host to update their name, usually their username for their login in the menu.

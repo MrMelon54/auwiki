@@ -3,11 +3,7 @@ title = "CheckColor"
 weight = 7
 [extra]
 tag = 7
-stub = true
 +++
-TODO
-<!-- more -->
-
 The CheckColor RPC is used by joining players to ask the host to set their color.
 
 <!-- more -->

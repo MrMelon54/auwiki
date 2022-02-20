@@ -3,7 +3,6 @@ title = "SetColor"
 weight = 8
 [extra]
 tag = 8
-stub = true
 +++
 
 The SetColor RPC updates the display color of the player.

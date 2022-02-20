@@ -3,7 +3,6 @@ title = "CastVote"
 weight = 24
 [extra]
 tag = 24
-stub = true
 +++
 The CastVote Rpc is used to tell the host that a player has made a vote in the voting screen.
 

@@ -3,7 +3,6 @@ title = "SetName"
 weight = 6
 [extra]
 tag = 6
-stub = true
 +++
 
 The SetName RPC updates the display name above a player.

@@ -3,10 +3,7 @@ title = "SendChat"
 weight = 13
 [extra]
 tag = 13
-stub = true
 +++
-TODO
-<!-- more -->
 
 This RPC is sent when a player sends a message to the chat box.
 
