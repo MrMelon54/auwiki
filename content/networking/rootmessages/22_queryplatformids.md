@@ -5,13 +5,13 @@ weight = 22
 tag = 22
 +++
 
-This message is sent when certain clients connect to a server.
+This message is sent when certain clients connect to a server to check if crossplay is allowed.
 
 <!-- more -->
 
 ```
 RootC2S[22] := gameCode:i32;
-RootS2C[22] := gameCode:i32; data:PlatformSpecificData*;
+RootS2C[22] := gameCode:i32 data:PlatformSpecificData*;
 ```
 
 When the server receives this packet, it returns the PlatformSpecificData of the connected players. The client then checks if it can crossplay with all players in this room and only connects if it can.

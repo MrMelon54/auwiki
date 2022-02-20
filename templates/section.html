@@ -25,16 +25,8 @@
 	{% endfor %#}
 
 	<div class="flex flex-wrap mb-4">
-		{% for page in section.pages %}
-		<div class="w-1/4">
-			<div class="m-1 px-3 py-3 bg-gray-200">
-				<a href="{{ page.path }}" class="text-xl">{{ macros::tagged_title(page = page) }}</a>
-				{% if page.summary %}
-				{{ page.summary | safe }}
-				{% endif %}
-			</div>
-		</div>
-		{% endfor %}
+		{% for section in section.subsections %}{{ macros::page_tile(page = get_section(path = section)) }}{% endfor %}
+		{% for page in section.pages %}{{ macros::page_tile(page = page) }}{% endfor %}
 	</div>
 </div>
 {% endblock %}

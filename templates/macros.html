@@ -5,29 +5,47 @@
 {% endmacro menubar %}
 
 {% macro menubar_inner(section, current_path) %}
-    <details {%- if current_path is starting_with(section.path) %} open {%- endif %}>
-        <summary><a href="{{ section.path }}" class="{% if section.path == current_path %}font-bold{% endif %}">{{ self::tagged_title(page = section) }}</a></summary>
-
-        <ul class="pl-6">
+{% if section.subsections | length == 0 and section.pages | length == 0 %}
+	<a href="{{ section.path }}" class="{% if current_path is starting_with(section.path) %}font-bold{% endif %}">{{ self::tagged_title(page = section) }}</a>
+{% else %}
+	<details {%- if current_path is starting_with(section.path) %} open {%- endif %}>
+		<summary><a href="{{ section.path }}" class="{% if section.path == current_path %}font-bold{% endif %}">{{ self::tagged_title(page = section) }}</a></summary>
+		<ul class="pl-6">
 			{% for subsection_path in section.subsections %}
 			<li>
 				{{ self::menubar_inner(section = get_section(path=subsection_path), current_path = current_path) }}
 			</li>
 			{% endfor %}
-            {% for page in section.pages %}
-            <li><a class="{% if page.path == current_path %}font-bold{% endif %}" href="{{ page.path }}">
+			{% for page in section.pages %}
+			<li><a class="{% if page.path == current_path %}font-bold{% endif %}" href="{{ page.path }}">
 				{{ self::tagged_title(page = page) }}
 			</a></li>
-            {% endfor %}
-        </ul>
-    </details>
+			{% endfor %}
+		</ul>
+	</details>
+{% endif %}
 {% endmacro menubar_inner %}
 
+{% macro page_tile(page) %}
+	<div class="w-1/4">
+		<a href="{{ page.path }}">
+			<div class="m-1 px-3 py-3 bg-gray-200">
+				<div class="text-xl">{{ macros::tagged_title(page = page) }}</div>
+				{% if page.summary %}
+				{{ page.summary | safe }}
+				{% endif %}
+			</div>
+		</a>
+	</div>
+{% endmacro %}
+
 {% macro tagged_title(page) %}
+	{% if page.extra is containing('stub') %}<i>{% endif %}
 	{% if page.extra is containing('tag') %}
 		{{ page.extra.tag }}{#{{ self::int2hex_padded(n = page.extra.tag) }}#} -
 	{% endif %}
 	{{ page.title }}
+	{% if page.extra is containing('stub') %}</i>{% endif %}
 {% endmacro %}
 
 {% macro int2hex_padded(n) %}

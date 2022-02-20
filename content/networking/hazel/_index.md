@@ -1,5 +1,6 @@
 +++
 title = "Hazel"
+weight = 10
 +++
 
 Hazel is the networking library used by Among Us. It is written in C# and open source [on GitHub](https://github.com/willardf/Hazel-Networking). If you're working on the lowest layer of the networking protocol, it may be a good starting point to look at this source code and possibly use it to develop your own implementation on top.
