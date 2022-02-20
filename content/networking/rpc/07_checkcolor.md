@@ -19,6 +19,6 @@ Rpc[7] := color:str;
 
 Sent by a joining player's PlayerControl to the host to get their display color updated.
 
-When received by the host, the host should check whether the color requested is already in use, and if so, use the next color available instead. Then the, host sets the player's color with [SetColor](@/networking/rpc/08_setcolor.md).
+When received by the host, the host should check whether the color requested is already in use, and if so, use the next color available instead. Then the, host sets the player's color with {{ link(to="SetColor") }}.
 
 ![](check_color_diagram.svg)

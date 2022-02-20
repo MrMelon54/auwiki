@@ -20,4 +20,4 @@ Rpc[6] := name:str;
 | Sent by:   | The host of the lobby                    |
 | Called on: | PlayerControl of the joining player      |
 
-Sent by the host's PlayerControl to each player to update their name, usually upon receiving a [CheckName](@/networking/rpc/05_checkname.md) RPC packet from whichever player is having their name set when they join the lobby.
+Sent by the host's PlayerControl to each player to update their name, usually upon receiving a {{ link(to="CheckName") }} RPC packet from whichever player is having their name set when they join the lobby.

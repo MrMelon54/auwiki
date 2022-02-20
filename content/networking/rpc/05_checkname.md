@@ -20,6 +20,6 @@ Rpc[5] := name:str;
 
 Sent by a joining player's PlayerControl to the host to get their display name updated.
 
-When received by the host, the host should check whether the name requested is already in use, and if so, append a number to the end to distinguish that player from others with the same name. Then the, host sets the player's name with [SetName](@/networking/rpc/06_setname.md).
+When received by the host, the host should check whether the name requested is already in use, and if so, append a number to the end to distinguish that player from others with the same name. Then the, host sets the player's name with {{ link(to="SetName") }}.
 
 ![](check_name_diagram.svg)

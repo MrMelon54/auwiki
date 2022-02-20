@@ -22,8 +22,8 @@ Rpc[24] := voter:u8 suspect:u8;
 
 Sent by a player the host of the room when the player votes another player to be ejected.
 
-The host should then send a [SendChatNote](@/networking/rpc/16_sendchatnote.md) to all players, indicating that they have made a vote in the chat box.
+The host should then send a {{ link(to="SendChatNote") }} to all players, indicating that they have made a vote in the chat box.
 
-This should also trigger a [Data](@/networking/gamedata/1_data.md) update for the MeetingHud in question, sent to all clients to update all vote states.
+This should also trigger a {{ link(to="Data") }} update for the MeetingHud in question, sent to all clients to update all vote states.
 
 ![](cast_vote_diagram.svg)
