@@ -23,6 +23,8 @@ This packet is sent by the host of the game when a [CheckMurder](@/networking/rp
 
 The impostor that performed the kill will get a cooldown, but if the kill was blocked by a protection shield, the cooldown is halved.
 
+[![](https://mermaid.ink/img/pako:eNp9UMFOwzAM_RXL5-0HegCJwYHDYAIuU9ODFXs0WpNUTgqapv07WbuiCQQ-2c_vPT_5iDayYIW7Ln7aljTD250JUCqGVSt2vx6URevnAFdjA8vlDbi06eggutGYxWbhSfgLrh8T5FagH2HoZ_y2MeEPSfGHraTxjIqPH3JZufif5CmOiiSBZ-uf6vplBK4CpTlR2X4nOlvUa9L9nJoSsBADBQbxLsP0iSlEgwv0op4cl18ezxYGywUvBqvScjEyaMKp8IaeKcsDuxwVqx11SRZIQ46vh2CxyjrITLp39K7kL6zTFzvOloU)](https://mermaid.live/edit/#pako:eNp9UMFOwzAM_RXL5-0HegCJwYHDYAIuU9ODFXs0WpNUTgqapv07WbuiCQQ-2c_vPT_5iDayYIW7Ln7aljTD250JUCqGVSt2vx6URevnAFdjA8vlDbi06eggutGYxWbhSfgLrh8T5FagH2HoZ_y2MeEPSfGHraTxjIqPH3JZufif5CmOiiSBZ-uf6vplBK4CpTlR2X4nOlvUa9L9nJoSsBADBQbxLsP0iSlEgwv0op4cl18ezxYGywUvBqvScjEyaMKp8IaeKcsDuxwVqx11SRZIQ46vh2CxyjrITLp39K7kL6zTFzvOloU)
+
 ## Version History
 
 | Version   | Change                                             |
