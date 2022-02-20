@@ -1,0 +1,13 @@
+flowchart TB
+    checkColor[On CheckColor] --> alreadyExists
+    alreadyExists[Is there already a player with that color?]
+
+    alreadyExists -- Try the next color --> loop
+    alreadyExists -- No --> send
+
+    loop[Is there already a player with that color?]
+
+    loop -- No --> send
+    loop -- Yes: Try the next color --> loop
+
+    send[Set the player's color using `SetColor`]

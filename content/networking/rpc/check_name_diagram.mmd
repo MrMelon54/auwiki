@@ -1,0 +1,15 @@
+flowchart TB
+    checkName[On CheckName] --> alreadyExists
+    alreadyExists[Is there already a player with that name?]
+
+    alreadyExists -- Yes --> letIBe0
+    letIBe0[Let i be '0'] --> appendNumber
+    appendNumber[Append 'i' to the end of the requested name] --> loop
+    alreadyExists -- No --> send
+
+    loop[Is there already a player with that name?]
+
+    loop -- No --> send
+    loop -- Increment 'i' by 1  --> appendNumber
+
+    send[Set the player's name using `SetName`]
