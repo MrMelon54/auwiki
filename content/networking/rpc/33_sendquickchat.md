@@ -6,7 +6,7 @@ tag = 33
 stub = true
 +++
 
-This RPC is sent when a player sends a message using the _Quick Chat_ system to the chat box, for players who have free chat disabled.
+This RPC is sent when a player sends a message using the _Quick Chat_ system to the chat box.
 
 <!-- more -->
 
