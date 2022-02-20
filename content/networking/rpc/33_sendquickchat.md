@@ -25,4 +25,4 @@ QuickChatMessageData[2] := playerId:u8;
 |            |                                                    |
 | ---------- | -------------------------------------------------- |
 | Sent by:   | A player when sending a chat message               |
-| Called on: | PlayerControl of the player sending the message    |
+| Called on: | {{ link(to="PlayerControl") }} of the player sending the message    |

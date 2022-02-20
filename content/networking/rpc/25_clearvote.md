@@ -16,6 +16,6 @@ Rpc[25];
 |            |                                                               |
 | ---------- | ------------------------------------------------------------- |
 | Sent by:   | The host of the room when someone's vote suspect disconnects  |
-| Called on: | MeetingHud spawned when the meeting started                   |
+| Called on: | {{ link(to="MeetingHud") }} spawned when the meeting started                   |
 
 Sent by the host of the room when someone's vote suspect disconnects, thus clearing the "voted player" on the voters screen.

@@ -15,9 +15,9 @@ Rpc[7] := color:str;
 |            |                                          |
 | ---------- | ---------------------------------------- |
 | Sent by:   | A player when joining the lobby          |
-| Called on: | PlayerControl of the joining player      |
+| Called on: | {{ link(to="PlayerControl") }} of the joining player      |
 
-Sent by a joining player's PlayerControl to the host to get their display color updated.
+Sent by a joining player's {{ link(to="PlayerControl") }} to the host to get their display color updated.
 
 When received by the host, the host should check whether the color requested is already in use, and if so, use the next color available instead. Then the, host sets the player's color with {{ link(to="SetColor") }}.
 

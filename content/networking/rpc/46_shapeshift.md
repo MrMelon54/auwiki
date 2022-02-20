@@ -15,7 +15,7 @@ It is also sent by the shapeshifter at the end of a meeting, allowing the shapes
 Rpc[46] := target:netObject shouldAnimate:bool;
 ```
 
-The `target` parameter indicates the PlayerControl the shapeshifter will turn into. The `shouldAnimate` parameter indicates whether the transition should be animated: this is false when the player is in a vent or when the player is still shapeshifted at the end of a meeting, which allows the shapeshifter to start the next round without being revealed. The following table explains when the transition is animated:
+The `target` parameter indicates the {{ link(to="PlayerControl") }} the shapeshifter will turn into. The `shouldAnimate` parameter indicates whether the transition should be animated: this is false when the player is in a vent or when the player is still shapeshifted at the end of a meeting, which allows the shapeshifter to start the next round without being revealed. The following table explains when the transition is animated:
 
 | Case                                                         | Animated?                 |
 | ------------------------------------------------------------ | ------------------------- |

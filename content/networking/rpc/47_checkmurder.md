@@ -16,8 +16,8 @@ Rpc[48] := target:netObject;
 |            |                                          |
 | ---------- | ---------------------------------------- |
 | Sent by:   | Killing Impostor (or Shapeshifter)       |
-| Called on: | PlayerControl of killing Impostor        |
-| Target is: | The PlayerControl that is being murdered |
+| Called on: | {{ link(to="PlayerControl") }} of killing Impostor        |
+| Target is: | The {{ link(to="PlayerControl") }} that is being murdered |
 
 This RPC is sent when the "Kill" button is pressed by an Impostor. When this RPC is received by the host, a [MurderPlayer](@/networking/rpc/12_murderplayer.md) RPC is sent.
 
