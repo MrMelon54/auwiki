@@ -22,8 +22,6 @@ QuickChatMessageData[1] := formatString:u16;
 QuickChatMessageData[2] := playerId:u8;
 ```
 
-**Note:** This does _not_ get called when using QuickChat, see [SendQuickChat](@/networking/rpc/33_sendquickchat.md.md)
-
 |            |                                                    |
 | ---------- | -------------------------------------------------- |
 | Sent by:   | A player when sending a chat message               |
