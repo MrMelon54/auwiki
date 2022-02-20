@@ -1,10 +1,10 @@
 flowchart TB
-    onCheckMurder[On CheckMurder] --> isPlayerProtected
+    onCheckMurder[On CheckMurder] --> murderPlayer
+    murderPlayer[Emit MurderPlayer] --> isPlayerProtected
     isPlayerProtected[Is the player protected?]
 
     isPlayerProtected -- Yes --> removeProtection
-    isPlayerProtected -- No --> send
+    isPlayerProtected -- No --> markPlayerAsDead
 
     removeProtection[Remove the players protection]
-
-    send[Mark player as dead and emit MurderPlayer]
+    markPlayerAsDead[Mark player as dead]

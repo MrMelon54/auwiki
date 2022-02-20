@@ -8,6 +8,7 @@ flowchart TB
     loop[Is there already a player with that color?]
 
     loop -- No --> send
-    loop -- Yes: Try the next color --> loop
+    loop -- Yes --> tryTheNextColor
+    tryTheNextColor[Try the next color] --> loop
 
     send[Set the player's color using `SetColor`]
