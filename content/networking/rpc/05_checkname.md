@@ -25,7 +25,7 @@ When received by the host, the host should check whether the name requested is a
 ## Flow
 When receiving the packet, the host should check whether or not a player already has the requested name. If so, then the host should keep appending an incrementing number until the name isn't taken, for example: `Edward`, `Edward 1`, `Edward 2`:
 
-![screenshot showing how each player has a name with a number at the end](check_name_example.png)
+![screenshot showing how each player has a name with a number at the end](../check_name_example.png)
 
 Then, the host should set their name with {{ link(to="SetName") }} with either the modified name with a number at the end if the requested name was taken, or the requested name otherwise.
 
