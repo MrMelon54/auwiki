@@ -16,11 +16,13 @@ Rpc[33] := contentType:u8 messageData:QuickChatMessageData(contentType);
 QuickChatMessageData[0] := numElements:pi32 QuickChatSentenceMessageData[numElements];
 
 QuickChatSentenceMessageData[598] := playerId:u8;
-QuickChatSentenceMessageData[X] := formatString: str;
+QuickChatSentenceMessageData[_] := formatString: str;
 
 QuickChatMessageData[1] := formatString:u16;
 QuickChatMessageData[2] := playerId:u8;
 ```
+
+> _598_ is `StringName.ANY` which represents a player's name in the quick chat protocol.
 
 |            |                                                    |
 | ---------- | -------------------------------------------------- |
