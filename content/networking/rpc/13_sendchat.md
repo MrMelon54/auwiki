@@ -19,10 +19,3 @@ Rpc[13] := chatMessage:str;
 | ---------- | -------------------------------------------------- |
 | Sent by:   | A player when sending a chat message               |
 | Called on: | {{ link(to="PlayerControl") }} of the player sending the message    |
-
-## Version History
-
-| Version   | Change                                             |
-| --------- | -------------------------------------------------- |
-| < 2021.x  | Introduced, sent by impostor when killing a player |
-| 2021.11.9 | Now sent by host                                   |
