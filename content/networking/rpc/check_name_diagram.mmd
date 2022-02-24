@@ -10,6 +10,8 @@ flowchart TB
     loop[Is there already a player with that name?]
 
     loop -- No --> send
-    loop -- Increment 'i' by 1  --> appendNumber
+    loop -- Yes --> incrementI
+
+    incrementI[Increment 'i' by 1] --> appendNumber
 
     send[Set the player's name using `SetName`]
