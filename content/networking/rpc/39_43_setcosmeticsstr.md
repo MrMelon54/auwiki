@@ -9,7 +9,7 @@ These RPC's are used to set the cosmetics of a player.
 
 <!-- more -->
 
-There is one RPC for each type of cosmetic, 5 in total, but because they're implemented almost the same we're explaining them together on this page. They are sent by the client when spawning a PlayerControl or when changing cosmetics using the Customization Menu.
+There is one RPC for each type of cosmetic, 5 in total, but because they're implemented almost the same we're explaining them together on this page. They are sent by the client when spawning a {{ link(to="PlayerControl") }} or when changing cosmetics using the Customization Menu.
 
 ```
 Rpc[39] := hatId:str; // SetHatStr

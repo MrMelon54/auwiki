@@ -1,0 +1,13 @@
+flowchart TB
+    castVote[On CastVote] --> sendChatNote
+    sendChatNote[Broadcast SendChatNote] --> dataUpdate
+    dataUpdate[Broadcast data update] --> haveAllPlayersVoted
+    haveAllPlayersVoted[Have all players voted?]
+
+    haveAllPlayersVoted -- Yes --> votingComplete
+    haveAllPlayersVoted -- No --> continue
+
+    votingComplete[Broadcast VotingComplete] --> endMeeting
+    endMeeting[End Meeting]
+
+    continue[Continue meeting]

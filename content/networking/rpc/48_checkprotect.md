@@ -16,8 +16,8 @@ Rpc[48] := target:netObject;
 |            |                                            |
 | ---------- | ------------------------------------------ |
 | Sent by:   | Guardian Angel                             |
-| Called on: | PlayerControl of protecting Guardian Angel |
-| Target is: | The PlayerControl that is being protected  |
+| Called on: | {{ link(to="PlayerControl") }} of protecting Guardian Angel |
+| Target is: | The {{ link(to="PlayerControl") }} that is being protected  |
 
 This RPC is sent when the "Protect" button is clicked by an Guardian Angel. When this RPC is received by the host, a [ProtectPlayer](@/networking/rpc/45_protectplayer.md) RPC is sent.
 
