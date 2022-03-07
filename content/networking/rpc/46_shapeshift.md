@@ -22,3 +22,9 @@ The `target` parameter indicates the {{ link(to="PlayerControl") }} the shapeshi
 | When shapeshifting to another player                         | Yes                       |
 | When shapeshifting back, either by clicking or automatically | Only if not in vents      |
 | After a meeting while shapeshifted                           | No (and also no cooldown) |
+
+## Version History
+
+| Version   | Change     |
+| --------- | ---------- |
+| 2021.11.9 | Introduced |

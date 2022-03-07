@@ -2,7 +2,6 @@
 title = "39-43 - SetCosmeticsStr"
 weight = 39
 [extra]
-stub = true
 +++
 
 These RPC's are used to set the cosmetics of a player.
@@ -18,3 +17,11 @@ Rpc[41] := petId:str; // SetPetStr
 Rpc[42] := visorId:str; // SetVisorStr
 Rpc[43] := namePlateId:str; // SetNamePlateStr
 ```
+
+Before v2021.11.9 these RPC's used numerical id's to indicate which hat/skin/pet was used. 2021.11.9 also introduces visor and nameplate cosmetics, so it reserved an RPC id for SetVisor and SetNameplate, then immediately retired it in favor of SetVisorStr/SetNamePlateStr.
+
+## Version History
+
+| Version   | Change                                                                           |
+| --------- | -------------------------------------------------------------------------------- |
+| 2021.11.9 | Introduced as a replacement for the numerical ID based RPC's (9. 10, 17, 36, 37) |

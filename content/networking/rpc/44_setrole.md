@@ -17,11 +17,17 @@ Rpc[44] := roleId:u16;
 
 The next table explains how role ID's are linked to roles and to which team these roles belong:
 
-| Id  | Role           | Team             |
-| --- | -------------- | ---------------- |
-| 0   | Crewmate       | Crewmates        |
-| 1   | Impostor       | Impostors        |
-| 2   | Scientist      | Crewmates        |
-| 3   | Engineer       | Crewmates        |
-| 4   | Guardian Angel | (Dead) Crewmates |
-| 5   | Shapeshifter   | Impostors        |
+| Id  | Role           | Team             | Special RPC                                                                             |
+| --- | -------------- | ---------------- | --------------------------------------------------------------------------------------- |
+| 0   | Crewmate       | Crewmates        |                                                                                         |
+| 1   | Impostor       | Impostors        | Can {{link(to="EnterVent", label="Vent")}}, {{link(to="MurderPlayer", label="Murder")}} |
+| 2   | Scientist      | Crewmates        |                                                                                         |
+| 3   | Engineer       | Crewmates        | Can {{link(to="EnterVent", label="Vent")}}                                              |
+| 4   | Guardian Angel | (Dead) Crewmates | Can {{link(to="CheckProtect", label="Protect")}}                                        |
+| 5   | Shapeshifter   | Impostors        | Can {{link(to="Shapeshift")}}                                                           |
+
+## Version History
+
+| Version   | Change     |
+| --------- | ---------- |
+| 2021.11.9 | Introduced |
