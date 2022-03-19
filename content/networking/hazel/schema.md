@@ -24,26 +24,29 @@ PlatformSpecificData := length:u16 tag:u8 platform_name:str;
 It is possible to conditionally choose which rule will be used to parse the remainder of the data by using a previous value as a tag. In case of our Hello packet, this means that we can parse our packet differently based on the tag of the PlatformSpecificData:
 
 ```
-// Win10 and Xbox edition
+// Win10 and Xbox edition respectively
 PlatformSpecificDataId(4) := xbox_id:u64;
 PlatformSpecificDataId(9) := xbox_id:u64;
 // PS edition
 PlatformSpecificDataId(10) := psn_id:u64;
 ```
 
-The data between `()` indicates the value of the tag. To call this, we need to add the name of the tag that will be used to rules that call this rule:
+The number between `()`, also known as a tag, is used to determine which rule applies.
+When calling a tagged rule, the name of the component that will be used to match against the tag should be added as an argument:
 
 ```
 PlatformSpecificData := length:u16 tag:u8 platform_name:str id:PlatformSpecificDataId(tag);
 ```
 
-It is also possible to create a so-called default rule: this rule applies when no specific rule exists. Default rules can be recognized by
-For all other platforms no data is provided, so a default rule exists that will be called if no more specific rule exists. Default rules use `_` instead of an integer:
+It is also possible to create a so-called default rule: this rule applies when no specific rule exists. Default rules use `_` instead of an integer as a tag.
+In the case of our PlatformSpecificData example, no platform specific id is provided for other platforms than win10/xbox/playstation, so a default rule is needed that will be called if no more specific rule exists:
 
 ```
-// Steam, Itch, Epic, etc don't send over an id in this way.
+// Steam, Itch, Epic, etc don't send over an id.
 PlatformSpecificDataId(_) := ;
 ```
+
+It is possible to not have a default rule, but if no default rule is present it is required to match a case.
 
 # Messages
 
@@ -60,20 +63,20 @@ This rule has two flaws: it does not allow customizing the inner rule. This coul
 Message<T> := length:u16 tag:u8 inner:T(tag);
 ```
 
-This still has a flaw, because in Hazel the length of the inner rule is determined by the length value that was passed to the message. Because of this and because it is the only exception, Message is implemented differently in the compiler as a sort of standard rule.
+This version still has a flaw, because in Hazel the length of the inner rule is determined by the length value that was passed to the message. Because of this and because Messages are the only exception that needs this syntax, Message is implemented differently in the compiler as a sort of standard rule.
 
 If we'd rewrite our Hello packet to use a Message rule, it'd look like this:
 
 ```
 Hello := version:i32 name:str nonce:u32 language:u32 chat_mode:u8 platform_data:Message<PlatformSpecificData>;
 
-// Win10 and Xbox edition
-PlatformSpecificDataId(4) := platform_name:str xbox_id:u64;
-PlatformSpecificDataId(9) := platform_name:str xbox_id:u64;
+// Win10 and Xbox edition respectively
+PlatformSpecificData(4) := platform_name:str xbox_id:u64;
+PlatformSpecificData(9) := platform_name:str xbox_id:u64;
 // PS edition
-PlatformSpecificDataId(10) := platform_name:str psn_id:u64;
-// Steam, Itch, Epic, etc don't send over an id in this way.
-PlatformSpecificDataId(_) := platform_name:str;
+PlatformSpecificData(10) := platform_name:str psn_id:u64;
+// Steam, Itch, Epic, etc don't send over an id.
+PlatformSpecificData(_) := platform_name:str;
 ```
 
 # Component types
