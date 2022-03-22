@@ -56,7 +56,7 @@ Messages are Hazel's inbuilt way to make a hierachy. As described in the [Types 
 Message := length:u16 tag:u8 inner:InnerRule(tag);
 ```
 
-This rule has two flaws: it does not allow customizing the inner rule. This could be fixed by adding generics to our schema, making the rule used for the inner rule an argument:
+This definition has some flaws, for example it does not allow customizing the inner rule. This could be fixed by adding generics to our schema, making the rule used for the inner rule an argument:
 
 ```
 // NOTE: generics are not supported, this is not an official part of the schema specification
@@ -91,4 +91,16 @@ A bunch of types are used through the schemas. Simple types like integers and st
 
 # Repetition
 
-<!-- TODO -->
+It is possible to repeat certain components of a rule multiple times. This could be useful if you need to parse a certain amount of bytes based on a length indicators, like when parsing a string:
+
+```
+String := length:pu32 chars:u8[length];
+```
+
+The value between `[]` then indicates the amount of times that component will be repeated. If you don't want to match on a previous component, there are also some other value you can put between square brackets:
+
+- `[*]` is used for zero or more matches. Note that you cannot have components after a component with this repetition value.
+- `[+]` is used for one or more matches. Note that you also cannot have components after a component with this repetition value.
+- `[?]` is used for an optional components: if the end of the message is reached this value will not be parsed, but if the end was not yet reached it will be parsed once. Note that you cannot have mandatory components after this component: all components after this must either have `[?]` or `[*]` as a repetition value.
+
+These limitations are to ensure parsing remains unambiguous: it is important that data can only be parsed in one way with any given set of rules.
