@@ -2,7 +2,11 @@
 title = "Schema notation"
 +++
 
-To denote how packets are decoded in Among Us a schema notation is used throughout the wiki. The schema consists of a bunch of rules, with each rule consisting of zero or more components. Here's an example:
+To denote how packets are decoded in Among Us a schema notation is used throughout the wiki. This article details how the schema notation works.
+
+<!-- more -->
+
+The schema consists of a bunch of rules, with each rule consisting of zero or more components. Here's an example:
 
 ```
 Hello := version:i32 name:str nonce:u32 language:u32 chat_mode:u8;
