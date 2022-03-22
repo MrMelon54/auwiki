@@ -6,6 +6,7 @@ To denote how packets are decoded in Among Us a schema notation is used througho
 
 <!-- more -->
 
+This notation was invented by miniduikboot for the purpose of the wiki, which is why this is not in the Hazel section.
 The schema consists of a bunch of rules, with each rule consisting of zero or more components. Here's an example:
 
 ```
