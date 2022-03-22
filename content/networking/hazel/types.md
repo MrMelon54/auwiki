@@ -2,7 +2,9 @@
 title = "Hazel types"
 +++
 
-The structure of Hazel packets is usually defined by the application, however there are some data types predefined by Hazel. This section goes over these basic building blocks, which are [Integers](#integers), [Packed Integers](#packed-integers), [Strings/Byte arrays](#strings-and-byte-arrays), and [Messages](#messages).
+While the structure of Hazel packets is defined by the application, there are some data types predefined by Hazel. This article goes over these basic building blocks, which are [Integers](#integers), [Packed Integers](#packed-integers), [Strings/Byte arrays](#strings-and-byte-arrays), and [Messages](#messages).
+
+<!-- more -->
 
 Reading and Writing packets is implemented in Hazel in the MessageReader and MessageWriter class respectively.
 
@@ -17,8 +19,6 @@ Floating points are encoded in a similar manner: the internal representation of 
 
 Next to their normal 4-byte format, Hazel can also encode 32-bit integers in a usually more compact format called Packed Integers.
 In this format, the most significant bit is used to indicate if another byte should be read, while the other 7 bits contain the actual value of the integer.
-
-The following piece of C# code is used to read packed integers, the code to write them is similar:
 
 The following piece of code is used by Hazel to [write](https://github.com/willardf/Hazel-Networking/blob/98d9f5d2c8664b19707907d1a7ca4863ec3e396a/Hazel/MessageWriter.cs#L302) and [read](https://github.com/willardf/Hazel-Networking/blob/98d9f5d2c8664b19707907d1a7ca4863ec3e396a/Hazel/MessageReader.cs#L393) packed integers, comments added for readability:
 
@@ -89,7 +89,7 @@ There is also an signed integer variant, but its use in new designs cannot be re
 
 ## Strings and byte arrays
 
-Strings and byte arrays usually consist of a packed 32-bit integer encoding the length of the following string/byte array in bytes, followed by the actual data of the string/byte array. It is expected that strings are valid UTF-8. It is also possible to read a certain amount of bytes without a length indicator, if this is constant or communicated in a different way.
+Strings and byte arrays usually consist of a packed 32-bit unsigned integer encoding the length of the following string/byte array in bytes, followed by the actual data of the string/byte array. It is expected that strings are valid UTF-8. It is also possible to read a certain amount of bytes without a length indicator, if this is constant or communicated in a different way.
 
 ## Messages
 
