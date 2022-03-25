@@ -7,7 +7,8 @@ const em = (px, base) => `${round(px / base)}em`;
 
 module.exports = {
   content: [
-    '../templates/**/*.html'
+    '../templates/**/*.html',
+    '../static/**/*.js'
   ],
   theme: {
     extend: {
