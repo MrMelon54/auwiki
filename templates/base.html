@@ -13,11 +13,19 @@
 		<title>{% block title %}{{ content.title }} - {{ config.title }}{% endblock %}</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-		<!-- Place favicon.ico in the root directory -->
 		<link rel="stylesheet" href="/styles.css">
 		<link rel="canonical" href="https://auwiki.duikbo.at{{ current_path }}">
+
+		{# Favicons #}
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#facc15">
+		<meta name="apple-mobile-web-app-title" content="AuWiki">
+		<meta name="application-name" content="AuWiki">
+		<meta name="msapplication-TileColor" content="#ffc40d">
+		<meta name="theme-color" content="#facc15">
 	</head>
 	<body class="flex flex-col h-screen bg-gray-100">
 		<!--[if lt IE 12]>
@@ -31,6 +39,9 @@
 		<div class="grow block">
 			{# Header #}
 			<header class="sticky top-0 w-full mx-auto bg-yellow-400 h-10 flex flex-row items-center z-10">
+				<div class="flex-none pl-8">
+					<a href="/"><img class="object-contain h-10 inline" src="/logo.png"></a>
+				</div>
 				<div class="flex-none pl-4 font-bold">
 					<a href="/">AUWiki</a>
 				</div>
