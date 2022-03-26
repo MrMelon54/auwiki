@@ -124,7 +124,7 @@ function makeTeaser(body, terms) {
 }
 
 function formatSearchResultItem(item, terms) {
-  return `<div class="hover:bg-yellow-200">`
+  return `<div class="hover:bg-yellow-200 px-2 py-1">`
     + `<a href="${item.ref}">`
     + `<div class="font-bold text-lg">${item.doc.title}</div>`
     + `<div>${makeTeaser(item.doc.body, terms)}</div>`

@@ -15,23 +15,7 @@ On this page:
 {% block header %}
 
 {% if page.lighter or page.heavier %}
-<div class="flex flex-row max-w-[100ch] justify-around pb-4">
-	<div class="">
-		{% if page.lighter %}
-		<a href={{page.lighter.permalink}}>&#129040; {{ macros::tagged_title(page = page.lighter) }}</a>
-		{% endif %}
-	</div>
-	<div class="">
-		{% set parent_path = page.ancestors | last %}
-		{% set parent = get_section(path = parent_path) %}
-		<a href={{parent.permalink}}>{{ parent.title }}</a>
-	</div>
-	<div class="">
-		{% if page.heavier %}
-		<a href={{page.heavier.permalink}}>{{ macros::tagged_title(page = page.heavier) }} &#129042;</a>
-		{% endif %}
-	</div>
-</div>
+{{ macros::nextprev(page=page) }}
 {% endif %}
 
 <h1 class="text-4xl pb-5 font-semibold">{{ page.title }}</h1>
@@ -41,4 +25,11 @@ On this page:
 <article class="prose prose-blue">
 	{{ page.content | safe }}
 </article>
+{% endblock %}
+
+{% block footer %}
+{% if page.lighter or page.heavier %}
+<div class="py-6 my-3 max-w-[100ch] border-b-2"></div>
+{{ macros::nextprev(page = page) }}
+{% endif %}
 {% endblock %}
