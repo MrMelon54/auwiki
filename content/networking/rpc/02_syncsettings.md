@@ -23,10 +23,10 @@ RoleOptionsData := num:i32 roles:RoleOptions[num] shapeshifter_leave_skin:bool s
 RoleOptions := key:i16 max_count:u8 chance:u8;
 ```
 
-|            |                                            |
-|------------|--------------------------------------------|
-| Sent by:   | Host of the game                           |
-| Called on: | {{ link(to="PlayerControl") }} of the host |
+|            |                                                                  |
+|------------|------------------------------------------------------------------|
+| Sent by:   | Host of the game                                                 |
+| Called on: | {{ link(to="PlayerControl") }} of the host or the joining player |
 
 This RPC is called when:
 - Settings are modified in the menu
