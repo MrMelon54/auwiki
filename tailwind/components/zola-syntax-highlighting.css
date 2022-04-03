@@ -36,3 +36,8 @@ pre table {
 }
 
 /* End of Zola Syntax Highlighting */
+
+/* Wrap code blocks around if they become too long */
+code {
+  white-space: pre-wrap;
+}
