@@ -3,9 +3,10 @@ const chokidar = require("chokidar");
 const fs = require("fs").promises;
 
 const buildLinkmap = require("./linkmap.js");
+const buildPlantUmlDiagrams = require("./plantuml.js");
 
 const events = ["add", "change", "unlink", "ready"];
-const tasks = [{ path: "../content/**/*.md", fn: linkmap, events: events }];
+const tasks = [{ path: "../content/**/*.md", fn: linkmap, events: events }, { path: "../content/**/*.uml", fn: plantuml, events: events }];
 
 // Tasks
 
@@ -13,6 +14,10 @@ async function linkmap() {
 	const content = await buildLinkmap("../content");
 	await fs.mkdir("../data", { recursive: true });
 	return fs.writeFile("../data/linkmap.toml", content);
+}
+
+async function plantuml() {
+	await buildPlantUmlDiagrams("../content");
 }
 
 // Runner Tasks

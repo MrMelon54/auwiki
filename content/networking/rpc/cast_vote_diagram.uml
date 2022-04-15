@@ -1,0 +1,16 @@
+@startuml
+skin plantuml2
+skinparam BackgroundColor transparent
+start
+:On CastVote;
+:Broadcast SendChatNote;
+:Broadcast Meeting Hud Data Update;
+if (Host: Have all players voted?) then (yes)
+     :Broadcast VotingComplete;
+     :End Meeting;
+     stop
+else (no)
+     :Continue meeting;
+     kill
+endif
+@enduml
