@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="flex flex-row">
-	<aside id="sidebar" class="w-1/5 px-4 sticky bg-gray-200 pt-4">
+	<aside id="sidebar" class="w-1/5 px-4 sticky bg-gray-200 dark:bg-slate-800 dark:text-slate-200 pt-4">
 		{% block sidebar_top %}
 		{% endblock %}
 		<nav>
@@ -16,7 +16,7 @@
 		{% block header %}
 		{% endblock %}
 		{% if content.extra is containing("stub") %}
-		<div class="bg-blue-100 border border-blue-400 px-4 py-3 mb-4 rounded" role="alert">This page is an incomplete stub, feel free to expand on this page.</div>
+		<div class="bg-blue-100 border border-blue-400 px-4 py-3 mb-4 rounded dark:bg-slate-600 dark:border-yellow-400" role="alert">This page is an incomplete stub, feel free to expand on this page.</div>
 		{% endif %}
 		{% block inner_content %}
 		{% endblock %}

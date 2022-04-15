@@ -29,7 +29,7 @@
 {% macro page_tile(page) %}
 	<div class="w-1/4">
 		<a href="{{ page.path }}">
-			<div class="m-1 px-3 py-3 bg-gray-200">
+			<div class="m-1 px-3 py-3 bg-gray-200 dark:bg-slate-800">
 				<div class="text-xl">{{ macros::tagged_title(page = page) }}</div>
 				{% if page.extra.summary %}
 				{{ page.extra.summary | safe }}

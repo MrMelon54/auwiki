@@ -27,7 +27,7 @@
 		<meta name="msapplication-TileColor" content="#ffc40d">
 		<meta name="theme-color" content="#facc15">
 	</head>
-	<body class="flex flex-col h-screen bg-gray-100">
+	<body class="flex flex-col h-screen bg-gray-100 dark:bg-slate-900">
 		<!--[if lt IE 12]>
 			<p class="browserupgrade">
 			You are using an <strong>outdated</strong> browser. Please
@@ -36,9 +36,9 @@
 			</p>
 		<![endif]-->
 
-		<div class="grow block">
+		<div class="grow block dark:text-slate-50">
 			{# Header #}
-			<header class="sticky top-0 w-full mx-auto bg-yellow-400 h-10 flex flex-row items-center z-10">
+			<header class="sticky top-0 w-full mx-auto bg-yellow-400 dark:bg-slate-700 dark:border-yellow-600 dark:border-b-2 h-10 flex flex-row items-center z-10">
 				<div class="flex-none pl-8">
 					<a href="/"><img class="object-contain h-10 inline" src="/logo.png"></a>
 				</div>
@@ -52,8 +52,8 @@
 				{% endfor %}
 				<div class="flex-1"></div>
 				<div class="pr-4">
-					<input type="search" id="search" placeholder="Search the wiki..." class="px-2 py-1">
-					<div id="search-results" class="absolute bg-gray-100 border px-1 py-1 w-1/3 right-0 hidden drop-shadow-lg">
+					<input type="search" id="search" placeholder="Search the wiki..." class="px-2 py-1 dark:bg-slate-900">
+					<div id="search-results" class="absolute bg-gray-100 dark:bg-slate-800 border px-1 py-1 w-1/3 right-0 hidden drop-shadow-lg">
 						<ul id="search-results-items">
 						</ul>
 					</div>
@@ -70,7 +70,7 @@
 
 
 
-		<footer class="bg-gray-100 px-2 py-2">
+		<footer class="bg-gray-100 dark:bg-slate-900 dark:text-slate-50 px-2 py-2">
 			This site is not affiliated with Among Us or Innersloth LLC, and the content contained therein is not endorsed or otherwise sponsored by Innersloth LLC. Portions of the materials contained herein are property of Innersloth LLC. © Innersloth LLC.
 		</footer>
 		<script data-goatcounter="https://stats.duikbo.at/count"
