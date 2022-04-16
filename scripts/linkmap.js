@@ -30,12 +30,12 @@ async function parseTitle(filename, rootdir) {
 	if (match == null) {
 		console.log("Could not find title in " + filename);
 	}
-	const relativeFilename = filename.slice(rootdir.length).replace(/\\/g, '/');
+	const relativeFilename = filename.slice(rootdir.length).replace(/\\/g, "/");
 	return `"${mapTitle(match[1], relativeFilename)}" = "${relativeFilename}"`;
 }
 
 function mapTitle(title, filename) {
-	return title;
+	return title.replaceAll(".", "--");
 }
 
 async function buildLinkmap(contentDir) {
