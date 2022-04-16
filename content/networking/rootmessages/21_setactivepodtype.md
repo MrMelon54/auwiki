@@ -17,3 +17,9 @@ Root[21] := podType:str;
 ```
 
 The strings that are passed here represent the names of cosmicubes, like "mira".
+
+# Version History
+
+| Version   | Change     |
+|-----------|------------|
+| 2021.11.9 | Introduced |
