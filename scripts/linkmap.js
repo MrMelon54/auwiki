@@ -35,7 +35,7 @@ async function parseTitle(filename, rootdir) {
 }
 
 function mapTitle(title, filename) {
-	return title.replaceAll(".", "--");
+	return title.replace(/\./g, "--");
 }
 
 async function buildLinkmap(contentDir) {
