@@ -1,5 +1,5 @@
 @startuml
-skin plantuml2
+'skin rose
 skinparam BackgroundColor transparent
 start
 :On CastVote;
