@@ -1,23 +1,32 @@
 #!/usr/bin/env node
 const chokidar = require("chokidar");
 const fs = require("fs").promises;
+const process = require("process");
 
 const buildLinkmap = require("./linkmap.js");
 const buildPlantUmlDiagrams = require("./plantuml.js");
 
 const events = ["add", "change", "unlink", "ready"];
-const tasks = [{ path: "../content/**/*.md", fn: linkmap, events: events }, { path: "../content/**/*.uml", fn: plantuml, events: events }];
+const tasks = [
+	{ path: "../content/**/*.md", fn: linkmap, events: events },
+	{ path: "../content/**/*.uml", fn: plantuml, events: events },
+];
 
 // Tasks
 
 async function linkmap() {
 	const content = await buildLinkmap("../content");
 	await fs.mkdir("../data", { recursive: true });
-	return fs.writeFile("../data/linkmap.toml", content);
+	await fs.writeFile("../data/linkmap.toml", content);
+	return 0;
 }
 
 async function plantuml() {
-	await buildPlantUmlDiagrams("../content");
+	let code = await buildPlantUmlDiagrams("../content");
+	if (code != 0) {
+		console.log("PlantUML exited with error code " + code);
+	}
+	return code;
 }
 
 // Runner Tasks
@@ -38,7 +47,11 @@ async function watch() {
 }
 
 async function build() {
-	return await Promise.all(tasks.map((task) => task.fn()));
+	let exitcodes = await Promise.all(tasks.map((task) => task.fn()));
+	let exitcode = exitcodes.reduce((a, b) => a + b, 0);
+	if (exitcode != 0) {
+		process.exit(1);
+	}
 }
 
 const runnerTasks = { watch: watch, build: build };

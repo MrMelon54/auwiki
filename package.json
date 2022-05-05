@@ -1,9 +1,9 @@
 {
-	"name": "auwiki",
-	"description": "Maintenance tasks and front-end stuff for auwiki",
-	"license": "AGPL-3.0",
-	"private": true,
-	"dependencies": {
-		"foreman": "^3.0.1"
-	}
+  "name": "auwiki",
+  "description": "Maintenance tasks and front-end stuff for auwiki",
+  "license": "AGPL-3.0",
+  "private": true,
+  "dependencies": {
+    "foreman": "^3.0.1"
+  }
 }
