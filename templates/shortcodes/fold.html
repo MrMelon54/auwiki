@@ -1,0 +1,5 @@
+{# Use this shortcode to create a foldable section. Optional argument "summary" creates a visible summary #}
+<details>
+	{% if summary %}<summary>{{ summary }}</summary>{% endif %}
+	{{ body | markdown | safe }}
+</details>
