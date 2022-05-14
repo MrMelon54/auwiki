@@ -2,8 +2,8 @@
 {% import "macros.html" as macros %}
 
 {% block content %}
-<div class="flex flex-row">
-	<aside id="sidebar" class="w-1/5 px-4 sticky bg-gray-200 dark:bg-slate-800 dark:text-slate-200 pt-4">
+<div class="flex flex-row container">
+	<aside id="sidebar" class="w-1/5 px-4 sticky bg-gray-200 dark:bg-slate-800 dark:text-slate-200 pt-4 pb-4">
 		{% block sidebar_top %}
 		{% endblock %}
 		<nav>
@@ -12,7 +12,7 @@
 		</nav>
 	</aside>
 
-	<div id="content" class="w-4/5 pt-4 pl-6 pr-6">
+	<div id="content" class="w-4/5 pt-4 pb-4 pl-6 pr-6">
 		{% block header %}
 		{% endblock %}
 		{% if content.extra is containing("stub") %}
